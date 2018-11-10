@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head> <title>My To-Do List</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="todoApp"><img src="" id="bimg"/>
+<div id="frame" ng-controller="todo"><br/>
+<span id="heading">My To-Do List</span><br/><br/>
+<div id="container">
+<span class="num">No. of tasks: <em>{{tasks.length}}</em></span>
+<div class="scroll"><ul type="none">
+<p id="list"></p>
+<li ng-repeat="task in tasks">
+	<input type="checkbox" ng-model="task.done" />
+	<span class="done-{{task.done}}">{{task.text}}</span><br/><br/><br/>
+</li></ul></div><br/>
+<span class="num"><em>Tick to mark a completed task</em></span>
+</div><br/>
+<button value="Add New Task" ng-click="addtask();">Add New Task</button>
+<button value="Remove Task" ng-click="removetask();">Remove Completed Tasks</button>
+<br/><br/>
+</div>
+
+<script>var app = angular.module("todoApp",[]);
+app.controller("todo",function($scope){
+	$scope.tasks=[
+		{text:"Morning Exercise",done:false},
+		{text:"Learn Javascript",done:false},
+		{text:"Attend summer training",done:false}];
+	$scope.addtask = function() {
+			if($scope.tasks.length == 0) document.getElementById("list").innerHTML = "";
+			$scope.todoText = window.prompt("Enter new task here:");
+			if($scope.todoText != undefined) $scope.tasks.push({text:$scope.todoText,done:false});
+	};
+	$scope.removetask = function() {
+		var flag=0;
+		for( i=0; i<$scope.tasks.length;){
+			if($scope.tasks[i].done == true){
+				$scope.tasks.splice(i,1);
+				flag++;
+			} else i++;
+		}
+		if (flag == 0) window.alert("You have no completed tasks.");
+		else if (flag == 1) window.alert("1 Task was successfully removed");
+		else window.alert(flag + " Tasks were successfully removed");
+		if($scope.tasks.length == 0) document.getElementById("list").innerHTML = "You do not have any tasks, currently!!";
+	};
+});
+</script>
+
+<link rel="stylesheet" href="Layout.css"/>
+<script type="text/javascript">document.getElementById("bimg").src = 'back.jpg';</script>
+
+</body>
+</html>
