@@ -2,8 +2,8 @@ body{background-color:black;font-family:verdana;margin:0px;}
 .done-true{color:teal;font-size:16px;display:block;padding:14px;word-wrap:break-word;width:80%;float:right;}
 .done-false{font-size:16px;display:block;padding:14px;word-wrap:break-word;width:80%;float:right;}
 button{width:297px;height:60px;cursor:pointer;background:none;font-size:16px;
-border:4px solid white;font-weight:bold;color:white;}
-button:hover {color:yellow;border:4px solid yellow;box-shadow:1px 1px 20px yellow;}
+border:4px solid white;font-weight:bold;color:white;border-radius: 30px;}
+button:hover {color:black;border:4px solid yellow;background-color: yellow;transition: all ease 0.2s;}
 #container{padding:40px;
 box-shadow:2px 2px 40px black;background-color:white;}
 #heading{font-family:"Broadway";font-size:42px;text-shadow:2px 2px 50px black;color:White;}
@@ -12,5 +12,5 @@ input:hover {box-shadow:1px 1px 30px teal;}
 .num {color:grey;font-size:14px;}
 #frame{display:block;margin:auto;width:600px;}
 #bimg{position:fixed;width:100%;z-index:-1;
-filter:blur(20px) brightness(60%) contrast(140%);}
+filter: blur(2px) contrast(140%);opacity: 0.2;}
 .scroll{height:250px;overflow:auto;}
